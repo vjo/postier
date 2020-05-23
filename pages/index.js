@@ -18,7 +18,7 @@ export const CARD_HEIGHT = "168px";
 const FETCH_ERROR_DATA = {};
 
 export default function Home() {
-  const [trackingId, setTrackingId] = useState("CF191401162FR");
+  const [trackingId, setTrackingId] = useState("");
   const [trackingInfo, setTrackingInfo] = useState({});
 
   const ids = Object.keys(trackingInfo);
