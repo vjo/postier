@@ -18,7 +18,7 @@ Get an API key from La Poste's [API Suivi](https://developer.laposte.fr/products
 OKAPI_KEY='YOUR_KEY'
 ```
 
-Then, run the development server:
+Run the development server:
 
 ```bash
 yarn install
