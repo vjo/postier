@@ -80,7 +80,10 @@ export default function PackageInfoCard({ info, onDelete, onRefresh }) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <DeliveryTimeline events={info.shipment.event} />
+          <DeliveryTimeline
+            events={info.shipment.event}
+            timeline={info.shipment.timeline}
+          />
         </CardContent>
       </Collapse>
       {info.isRefreshing ? (

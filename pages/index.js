@@ -1,8 +1,9 @@
-import Head from "next/head";
-import ErrorCard from "../components/errorCard";
-import PackageInfoCard from "../components/packageInfoCard";
-import Footer from "../components/footer";
 import React, { useState } from "react";
+import ErrorCard from "../components/errorCard";
+import Footer from "../components/footer";
+import Head from "next/head";
+import PackageInfoCard from "../components/packageInfoCard";
+import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 import { Skeleton } from "@material-ui/lab";
 import {
   Box,
@@ -12,7 +13,6 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
-import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 
 export const CARD_HEIGHT = "168px";
 const FETCH_ERROR_DATA = {};

@@ -1,19 +1,9 @@
 import React from "react";
 import StepIcon from "./stepIcon";
 import { CARD_HEIGHT } from "../pages";
+import { getCountryEmojiForEvent } from "./utils";
+import { formatDate } from "./utils";
 import { Grid, makeStyles, Typography } from "@material-ui/core";
-
-const formatDate = (dateStr) => {
-  const date = new Date(dateStr);
-  const options = {
-    month: "short",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-  };
-
-  return new Intl.DateTimeFormat("en", options).format(date);
-};
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -31,22 +21,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DeliveryTimeline({ events }) {
+export default function DeliveryTimeline({ events, timeline }) {
   const classes = useStyles();
   const ids = Object.keys(events);
 
   return (
     <Grid container spacing={2}>
       {ids.map((id, index) => {
+        const countryFlag = getCountryEmojiForEvent(events[id], timeline);
         return (
           <Grid key={index} className={classes.container} container>
             <Grid item xs={1}>
               <StepIcon code={events[id].code} />
             </Grid>
             <Grid item xs={11}>
-              <Typography variant="body2" color="textSecondary">
+              <Typography
+                color="textSecondary"
+                display="inline"
+                variant="body2"
+              >
                 {formatDate(events[id].date)}
               </Typography>
+              {countryFlag ? (
+                <Typography display="inline" variant="body2">
+                  {` ${countryFlag}`}
+                </Typography>
+              ) : null}
             </Grid>
             <Grid item xs={1}>
               <div className={classes.line} />
