@@ -40,23 +40,26 @@ function PackageInfoCard({ classes, info, onDelete, onRefresh }) {
     setExpanded(!expanded);
   };
 
-  const productLabel = (
-    <Typography fontSize="small">
-      {info.shipment.product}
-      <LaunchIcon className={classes.launchIcon} />
-    </Typography>
-  );
   const title = (
     <Grid container spacing={2}>
       <Grid item>
         <Typography variant="h5">{info.shipment.idShip}</Typography>
       </Grid>
-      <Grid item>
-        <Chip color="secondary" label={productLabel} variant="outlined" />
-      </Grid>
     </Grid>
   );
-  const subheader = info.shipment.event[0].label;
+  const subheader = (
+    <Link
+      color="textSecondary"
+      fontSize="small"
+      href={info.shipment.url}
+      rel="noopener"
+      target="_blank"
+    >
+      {info.shipment.product}
+      <LaunchIcon className={classes.launchIcon} />
+    </Link>
+  );
+  //info.shipment.event[0].label;
 
   return (
     <Card>
