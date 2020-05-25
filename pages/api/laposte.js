@@ -13,7 +13,7 @@ export default (req, res) => {
     .then((data) => {
       res.statusCode = 200;
       res.setHeader("Content-Type", "application/json");
-      res.end(JSON.stringify(data));
+      res.end(JSON.stringify({ ...data, responseDate: new Date() }));
     })
     .catch((err) => {
       res.statusCode = 500;

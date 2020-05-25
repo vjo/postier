@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import DeliveryTimeline from "./deliveryTimeline";
 import CloseIcon from "@material-ui/icons/Close";
-import LinkIcon from "@material-ui/icons/Link";
+import DeliveryTimeline from "./deliveryTimeline";
+import { formatDate } from "./utils";
+import LaunchIcon from "@material-ui/icons/Launch";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import {
   Button,
@@ -18,10 +19,16 @@ import {
   Typography,
   withStyles,
 } from "@material-ui/core";
+import TimeAgo from "react-timeago";
 
 const LINEAR_PROGRESS_HEIGHT = "4px";
 
 const styles = {
+  launchIcon: {
+    fontSize: "16px",
+    verticalAlign: "middle",
+    marginLeft: "2px",
+  },
   showMore: {
     marginLeft: "auto",
   },
@@ -33,21 +40,23 @@ function PackageInfoCard({ classes, info, onDelete, onRefresh }) {
     setExpanded(!expanded);
   };
 
+  const productLabel = (
+    <Typography fontSize="small">
+      {info.shipment.product}
+      <LaunchIcon className={classes.launchIcon} />
+    </Typography>
+  );
   const title = (
     <Grid container spacing={2}>
       <Grid item>
         <Typography variant="h5">{info.shipment.idShip}</Typography>
       </Grid>
       <Grid item>
-        <Chip
-          color="secondary"
-          label={info.shipment.product}
-          variant="outlined"
-        />
+        <Chip color="secondary" label={productLabel} variant="outlined" />
       </Grid>
     </Grid>
   );
-  const subheader = `${info.shipment.event[0].label}`;
+  const subheader = info.shipment.event[0].label;
 
   return (
     <Card>
@@ -64,11 +73,9 @@ function PackageInfoCard({ classes, info, onDelete, onRefresh }) {
         <IconButton aria-label="refresh information" onClick={onRefresh}>
           <RefreshIcon />
         </IconButton>
-        <Link href={info.shipment.url} rel="noopener" target="_blank">
-          <IconButton aria-label="view on carrier website">
-            <LinkIcon />
-          </IconButton>
-        </Link>
+        <Typography color="textSecondary" variant="subtitle2">
+          <TimeAgo date={info.responseDate} minPeriod={15} />
+        </Typography>
         <Button
           className={classes.showMore}
           onClick={handleExpandClick}
