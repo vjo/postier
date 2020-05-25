@@ -3,6 +3,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import DeliveryTimeline from "./deliveryTimeline";
 import { formatDate } from "./utils";
 import LaunchIcon from "@material-ui/icons/Launch";
+import PackageStatus from "./packageStatus";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import {
   Button,
@@ -10,7 +11,6 @@ import {
   CardActions,
   CardContent,
   CardHeader,
-  Chip,
   Collapse,
   Grid,
   IconButton,
@@ -24,6 +24,13 @@ import TimeAgo from "react-timeago";
 const LINEAR_PROGRESS_HEIGHT = "4px";
 
 const styles = {
+  cardHeader: {
+    paddingBottom: "8px",
+  },
+  cardMainContent: {
+    paddingTop: "8px",
+    paddingBottom: "8px",
+  },
   launchIcon: {
     fontSize: "16px",
     verticalAlign: "middle",
@@ -45,6 +52,7 @@ function PackageInfoCard({ classes, info, onDelete, onRefresh }) {
       <Grid item>
         <Typography variant="h5">{info.shipment.idShip}</Typography>
       </Grid>
+      <Grid item xs={1}></Grid>
     </Grid>
   );
   const subheader = (
@@ -59,7 +67,6 @@ function PackageInfoCard({ classes, info, onDelete, onRefresh }) {
       <LaunchIcon className={classes.launchIcon} />
     </Link>
   );
-  //info.shipment.event[0].label;
 
   return (
     <Card>
@@ -69,9 +76,15 @@ function PackageInfoCard({ classes, info, onDelete, onRefresh }) {
             <CloseIcon />
           </IconButton>
         }
+        className={classes.cardHeader}
         subheader={subheader}
         title={title}
       />
+      <CardContent className={classes.cardMainContent}>
+        <Typography variant="body1" color="textPrimary">
+          <PackageStatus events={info.shipment.event} />
+        </Typography>
+      </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="refresh information" onClick={onRefresh}>
           <RefreshIcon />
