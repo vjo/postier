@@ -77,7 +77,7 @@ function PackageInfoCard({ classes, info, onDelete, onRefresh }) {
           {expanded ? "Show Less" : "Show More"}
         </Button>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <Collapse in={expanded} timeout="auto">
         <CardContent>
           <DeliveryTimeline
             events={info.shipment.event}
