@@ -16,7 +16,7 @@ import {
 } from "@material-ui/core";
 import createPersistedState from "use-persisted-state";
 
-export const CARD_HEIGHT = "168px";
+export const CARD_HEIGHT = "188px";
 const FETCH_ERROR_DATA = {};
 const styles = {
   footer: {
