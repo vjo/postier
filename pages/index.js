@@ -50,7 +50,12 @@ function Home({ classes }) {
         }
         return response.json();
       })
-      .then((data) => setTrackingInfo({ ...trackingInfo, [id]: { ...data } }))
+      .then((data) =>
+        setTrackingInfo({
+          ...trackingInfo,
+          [id]: { ...trackingInfo[id], ...data },
+        })
+      )
       .catch((err) => {
         setTrackingInfo({
           ...trackingInfo,
@@ -74,6 +79,12 @@ function Home({ classes }) {
     const { [id]: _, ...rest } = trackingInfo;
     setTrackingInfo({ ...rest });
   };
+
+  const handleNameChange = (id) => (event) =>
+    setTrackingInfo({
+      ...trackingInfo,
+      [id]: { ...trackingInfo[id], name: event.target.value },
+    });
 
   const handleRefresh = (id) => () => {
     setTrackingInfo({
@@ -139,6 +150,7 @@ function Home({ classes }) {
                         <PackageInfoCard
                           info={trackingInfo[id]}
                           onDelete={handleDelete(id)}
+                          onNameChange={handleNameChange(id)}
                           onRefresh={handleRefresh(id)}
                         />
                       </Grid>

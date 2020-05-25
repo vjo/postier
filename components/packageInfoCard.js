@@ -14,6 +14,7 @@ import {
   Collapse,
   Grid,
   IconButton,
+  Input,
   LinearProgress,
   Link,
   Typography,
@@ -39,33 +40,45 @@ const styles = {
   showMore: {
     marginLeft: "auto",
   },
+  title: {
+    fontSize: "1.3rem",
+    minWidth: "220px",
+    width: "70%",
+  },
 };
 
-function PackageInfoCard({ classes, info, onDelete, onRefresh }) {
+function PackageInfoCard({ classes, info, onDelete, onNameChange, onRefresh }) {
   const [expanded, setExpanded] = useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   const title = (
-    <Grid container spacing={2}>
-      <Grid item>
-        <Typography variant="h5">{info.shipment.idShip}</Typography>
-      </Grid>
-      <Grid item xs={1}></Grid>
-    </Grid>
+    <Input
+      className={classes.title}
+      color="secondary"
+      onChange={onNameChange}
+      placeholder="Set name"
+      value={info.name}
+    />
   );
+
   const subheader = (
-    <Link
-      color="textSecondary"
-      fontSize="small"
-      href={info.shipment.url}
-      rel="noopener"
-      target="_blank"
-    >
-      {info.shipment.product}
-      <LaunchIcon className={classes.launchIcon} />
-    </Link>
+    <React.Fragment>
+      <Typography color="textSecondary" display="inline">
+        {`${info.shipment.idShip} | `}
+      </Typography>
+      <Link
+        color="inherit"
+        fontSize="small"
+        href={info.shipment.url}
+        rel="noopener"
+        target="_blank"
+      >
+        {info.shipment.product}
+        <LaunchIcon className={classes.launchIcon} />
+      </Link>
+    </React.Fragment>
   );
 
   return (
