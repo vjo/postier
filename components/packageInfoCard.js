@@ -15,20 +15,19 @@ import {
   IconButton,
   LinearProgress,
   Link,
-  makeStyles,
   Typography,
+  withStyles,
 } from "@material-ui/core";
 
 const LINEAR_PROGRESS_HEIGHT = "4px";
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   showMore: {
     marginLeft: "auto",
   },
-}));
+};
 
-export default function PackageInfoCard({ info, onDelete, onRefresh }) {
-  const classes = useStyles();
+function PackageInfoCard({ classes, info, onDelete, onRefresh }) {
   const [expanded, setExpanded] = useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -94,3 +93,5 @@ export default function PackageInfoCard({ info, onDelete, onRefresh }) {
     </Card>
   );
 }
+
+export default withStyles(styles)(PackageInfoCard);
