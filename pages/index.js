@@ -12,15 +12,31 @@ import {
   Grid,
   TextField,
   Typography,
+  withStyles,
 } from "@material-ui/core";
 import createPersistedState from "use-persisted-state";
 
 export const CARD_HEIGHT = "168px";
 const FETCH_ERROR_DATA = {};
+const styles = {
+  footer: {
+    width: "100%",
+    height: "30px",
+    marginTop: "20px",
+    borderTop: "1px solid #eaeaea",
+    display: "flex",
+  },
+  footerIcon: {
+    verticalAlign: "bottom",
+  },
+  cardShowMore: {
+    marginLeft: "auto",
+  },
+};
 
 const useTrackingInfoState = createPersistedState("trackingInfo");
 
-export default function Home() {
+function Home({ classes }) {
   const [trackingId, setTrackingId] = useState("");
   const [trackingInfo, setTrackingInfo] = useTrackingInfoState({});
 
@@ -140,8 +156,10 @@ export default function Home() {
             ) : null}
           </Grid>
         </main>
-        <Footer />
+        <Footer classes={classes} />
       </Container>
     </React.Fragment>
   );
 }
+
+export default withStyles(styles)(Home);

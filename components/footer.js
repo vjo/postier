@@ -1,25 +1,10 @@
 import React from "react";
-import { Grid, makeStyles, Link, Typography } from "@material-ui/core";
+import { Grid, Link, Typography } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import CodeIcon from "@material-ui/icons/Code";
 
-const useStyles = makeStyles((theme) => ({
-  footer: {
-    width: "100%",
-    height: "30px",
-    marginTop: "20px",
-    borderTop: "1px solid #eaeaea",
-    display: "flex",
-  },
-  icon: {
-    verticalAlign: "bottom",
-  },
-}));
-
-export default function Footer() {
-  const classes = useStyles();
-
+export default function Footer({ classes }) {
   return (
     <footer className={classes.footer}>
       <Grid alignItems="center" container direction="row">
@@ -27,15 +12,13 @@ export default function Footer() {
           <Typography align="left" color="textSecondary" variant="body2">
             <CodeIcon
               aria-label="coded"
-              //classes={{ root: classes.icon }}
-              className={classes.icon}
+              className={classes.footerIcon}
               fontSize="small"
-            />{" "}
+            />
             {" with "}
             <FavoriteBorderIcon
               aria-label="love"
-              //classes={{ root: classes.icon }}
-              className={classes.icon}
+              className={classes.footerIcon}
               fontSize="small"
             />
             {" by "}
@@ -50,8 +33,7 @@ export default function Footer() {
             <Link color="inherit" href="https://github.com/vjo/postier">
               <GitHubIcon
                 aria-label="Github"
-                //                classes={{ root: classes.icon }}
-                className={classes.icon}
+                className={classes.footerIcon}
                 fontSize="small"
               />
             </Link>
