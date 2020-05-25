@@ -27,13 +27,15 @@ export default function Footer() {
           <Typography align="left" color="textSecondary" variant="body2">
             <CodeIcon
               aria-label="coded"
-              classes={{ root: classes.icon }}
+              //classes={{ root: classes.icon }}
+              className={classes.icon}
               fontSize="small"
             />{" "}
             {" with "}
             <FavoriteBorderIcon
               aria-label="love"
-              classes={{ root: classes.icon }}
+              //classes={{ root: classes.icon }}
+              className={classes.icon}
               fontSize="small"
             />
             {" by "}
@@ -48,7 +50,8 @@ export default function Footer() {
             <Link color="inherit" href="https://github.com/vjo/postier">
               <GitHubIcon
                 aria-label="Github"
-                classes={{ root: classes.icon }}
+                //                classes={{ root: classes.icon }}
+                className={classes.icon}
                 fontSize="small"
               />
             </Link>

@@ -13,13 +13,16 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
+import createPersistedState from "use-persisted-state";
 
 export const CARD_HEIGHT = "168px";
 const FETCH_ERROR_DATA = {};
 
+const useTrackingInfoState = createPersistedState("trackingInfo");
+
 export default function Home() {
   const [trackingId, setTrackingId] = useState("");
-  const [trackingInfo, setTrackingInfo] = useState({});
+  const [trackingInfo, setTrackingInfo] = useTrackingInfoState({});
 
   const ids = Object.keys(trackingInfo);
 

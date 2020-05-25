@@ -8,13 +8,14 @@
     "start": "next start"
   },
   "dependencies": {
-    "@material-ui/core": "false4.9.14",
-    "@material-ui/icons": "false4.9.1",
-    "@material-ui/lab": "false4.0.0-alpha.53",
-    "@material-ui/styles": "false4.9.14",
-    "dotenv": "false8.2.0",
+    "@material-ui/core": "4.9.14",
+    "@material-ui/icons": "4.9.1",
+    "@material-ui/lab": "4.0.0-alpha.53",
+    "@material-ui/styles": "4.9.14",
+    "dotenv": "8.2.0",
     "next": "9.4.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "use-persisted-state": "0.3.0"
   }
 }
