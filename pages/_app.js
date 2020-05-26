@@ -19,11 +19,24 @@ export default function MyApp(props) {
   return (
     <React.Fragment>
       <Head>
-        <title>Postier - Track LaPoste parcels</title>
+        <title>Postier - La Poste parcels tracking, simple</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
+        <meta property="og:title" content="Postier" />
+        <meta
+          property="og:description"
+          content="La Poste parcels tracking, simple."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://postier.new.sh" />
+        <meta
+          property="og:image"
+          content="https://postier.now.sh/ogimage.png"
+        />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="450" />
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
