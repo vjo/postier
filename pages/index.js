@@ -6,6 +6,7 @@ import Head from "next/head";
 import PackageInfoCard from "../components/packageInfoCard";
 import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 import { Skeleton } from "@material-ui/lab";
+import { useRouter } from "next/router";
 import {
   Box,
   Button,
@@ -37,11 +38,19 @@ const styles = {
 const useTrackingInfoState = createPersistedState("trackingInfo");
 
 function Home({ classes }) {
+  const router = useRouter();
   const [trackingId, setTrackingId] = useState("");
   const [trackingInfo, setTrackingInfo] = useTrackingInfoState({});
   const ids = Object.keys(trackingInfo);
 
-  const fetchId = (id) => {
+  const fetchId = ({ id, action }) => {
+    if (action) {
+      setTrackingInfo({
+        ...trackingInfo,
+        [id]: { ...trackingInfo[id], [action]: true },
+      });
+    }
+
     fetch(`/api/laposte?id=${id}`)
       .then((response) => {
         if (!response.ok) {
@@ -68,9 +77,8 @@ function Home({ classes }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (trackingId.length) {
-      setTrackingInfo({ ...trackingInfo, [trackingId]: { isLoading: true } });
+      fetchId({ id: trackingId, action: "isLoading" });
       setTrackingId("");
-      fetchId(trackingId);
     }
   };
 
@@ -85,13 +93,15 @@ function Home({ classes }) {
       [id]: { ...trackingInfo[id], name: event.target.value },
     });
 
-  const handleRefresh = (id) => () => {
-    setTrackingInfo({
-      ...trackingInfo,
-      [id]: { ...trackingInfo[id], isRefreshing: true },
-    });
-    fetchId(id);
-  };
+  const handleRefresh = (id) => () => fetchId({ id, action: "isRefreshing" });
+
+  const { track } = router.query;
+  if (track) {
+    if (!(track in trackingInfo)) {
+      fetchId({ id: track, action: "isLoading" });
+    }
+    router.push("/", undefined, { shallow: true });
+  }
 
   return (
     <React.Fragment>

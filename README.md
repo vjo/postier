@@ -6,9 +6,14 @@ Postier is the french term for postman.
 
 This project is built out of the frustration using La Poste's [tracking service](https://www.laposte.fr/outils/suivre-vos-envois).
 
-## Getting Started
+## Usage
 
-### Development
+Visit https://postier.now.sh and enter your tracking id handle by La Poste.
+Parcels' information are stored in your browser so parcels are visible on subsequent visits.
+
+To add a parcel from the URL: https://postier.now.sh/?track=<yourID>
+
+## Development
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app). It uses [Material-UI](https://material-ui.com/) components.
 
