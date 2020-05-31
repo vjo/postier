@@ -33,7 +33,7 @@ export default function MyApp(props) {
         <meta property="og:url" content="https://postier.new.sh" />
         <meta
           property="og:image"
-          content="https://postier.now.sh/ogimage.png"
+          content="https://postier.now.sh/ogimage.jpg"
         />
         <meta property="og:image:width" content="800" />
         <meta property="og:image:height" content="450" />
