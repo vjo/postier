@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import createPersistedState from "use-persisted-state";
 import ErrorCard from "../components/errorCard";
 import Footer from "../components/footer";
 import Head from "next/head";
@@ -14,9 +15,8 @@ import {
   Typography,
   withStyles,
 } from "@material-ui/core";
-import createPersistedState from "use-persisted-state";
 
-export const CARD_HEIGHT = "188px";
+export const CARD_HEIGHT = "194px";
 const FETCH_ERROR_DATA = {};
 const styles = {
   footer: {
@@ -39,7 +39,6 @@ const useTrackingInfoState = createPersistedState("trackingInfo");
 function Home({ classes }) {
   const [trackingId, setTrackingId] = useState("");
   const [trackingInfo, setTrackingInfo] = useTrackingInfoState({});
-
   const ids = Object.keys(trackingInfo);
 
   const fetchId = (id) => {
