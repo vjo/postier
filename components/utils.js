@@ -27,6 +27,7 @@ export const formatDate = (dateStr, lang = "en") => {
 
 export const getStatusFromCode = (code) => statusCode[code];
 
+// From https://developer.laposte.fr/products/suivi/latest
 const statusCode = {
   DR1: {
     code: "DR1",
