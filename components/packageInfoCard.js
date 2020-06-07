@@ -21,6 +21,7 @@ import {
   withStyles,
 } from '@material-ui/core';
 import TimeAgo from 'react-timeago';
+import PropTypes from 'prop-types';
 
 const LINEAR_PROGRESS_HEIGHT = '4px';
 
@@ -127,5 +128,13 @@ function PackageInfoCard({ classes, info, onDelete, onNameChange, onRefresh }) {
     </Card>
   );
 }
+
+PackageInfoCard.propTypes = {
+  classes: PropTypes.object.isRequired,
+  info: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onNameChange: PropTypes.func.isRequired,
+  onRefresh: PropTypes.func.isRequired,
+};
 
 export default withStyles(styles)(PackageInfoCard);

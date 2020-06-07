@@ -5,6 +5,7 @@ import Footer from '../components/footer';
 import Head from 'next/head';
 import PackageInfoCard from '../components/packageInfoCard';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import PropTypes from 'prop-types';
 import { Skeleton } from '@material-ui/lab';
 import { useRouter } from 'next/router';
 import {
@@ -182,5 +183,9 @@ function Home({ classes }) {
     </React.Fragment>
   );
 }
+
+Home.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(Home);

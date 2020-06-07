@@ -3,6 +3,7 @@ import StepIcon from './stepIcon';
 import { CARD_HEIGHT } from '../pages';
 import { getCountryEmojiForEvent } from './utils';
 import { formatDate } from './utils';
+import PropTypes from 'prop-types';
 import { Grid, Typography, withStyles } from '@material-ui/core';
 
 const styles = (theme) => ({
@@ -51,5 +52,11 @@ function DeliveryTimeline({ classes, events, timeline }) {
     );
   });
 }
+
+DeliveryTimeline.propTypes = {
+  classes: PropTypes.object.isRequired,
+  events: PropTypes.array.isRequired,
+  timeline: PropTypes.array.isRequired,
+};
 
 export default withStyles(styles)(DeliveryTimeline);

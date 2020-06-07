@@ -4,6 +4,7 @@ import { getStatusFromCode } from './utils';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
 import theme from './theme';
+import PropTypes from 'prop-types';
 
 const styles = {
   icon: {
@@ -12,7 +13,7 @@ const styles = {
   },
 };
 
-function PackageStatus({ classes, events, lang = 'en' }) {
+function PackageStatus({ classes, events }) {
   const lastEvent = events[0];
   const status = getStatusFromCode(lastEvent.code);
 
@@ -45,5 +46,10 @@ function PackageStatus({ classes, events, lang = 'en' }) {
     </Typography>
   );
 }
+
+PackageStatus.propTypes = {
+  classes: PropTypes.object.isRequired,
+  events: PropTypes.array.isRequired,
+};
 
 export default withStyles(styles)(PackageStatus);

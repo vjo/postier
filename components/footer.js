@@ -3,6 +3,7 @@ import { Grid, Link, Typography } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import CodeIcon from '@material-ui/icons/Code';
+import PropTypes from 'prop-types';
 
 export default function Footer({ classes }) {
   return (
@@ -43,3 +44,7 @@ export default function Footer({ classes }) {
     </footer>
   );
 }
+
+Footer.propTypes = {
+  classes: PropTypes.object.isRequired,
+};

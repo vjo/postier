@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CARD_HEIGHT } from '../pages';
 import CloseIcon from '@material-ui/icons/Close';
+import PropTypes from 'prop-types';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import { IconButton, Typography } from '@material-ui/core';
 
@@ -35,3 +36,8 @@ export default function ErrorCard({ info, onDelete }) {
     </Alert>
   );
 }
+
+ErrorCard.propTypes = {
+  info: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
