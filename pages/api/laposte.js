@@ -1,6 +1,6 @@
 const headers = {
-  "X-Okapi-Key": process.env.OKAPI_KEY,
-  Accept: "application/json",
+  'X-Okapi-Key': process.env.OKAPI_KEY,
+  Accept: 'application/json',
 };
 
 export default (req, res) => {
@@ -12,12 +12,12 @@ export default (req, res) => {
     .then((response) => response.json())
     .then((data) => {
       res.statusCode = 200;
-      res.setHeader("Content-Type", "application/json");
+      res.setHeader('Content-Type', 'application/json');
       res.end(JSON.stringify({ ...data, responseDate: new Date() }));
     })
     .catch((err) => {
       res.statusCode = 500;
-      res.setHeader("Content-Type", "application/json");
+      res.setHeader('Content-Type', 'application/json');
       res.end(JSON.stringify(err));
     });
 };

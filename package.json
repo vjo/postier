@@ -18,5 +18,8 @@
     "react-dom": "16.13.1",
     "react-timeago": "false4.4.0",
     "use-persisted-state": "0.3.0"
+  },
+  "devDependencies": {
+    "prettier": "2.0.5"
   }
 }

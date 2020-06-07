@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import CloseIcon from "@material-ui/icons/Close";
-import DeliveryTimeline from "./deliveryTimeline";
-import { formatDate } from "./utils";
-import LaunchIcon from "@material-ui/icons/Launch";
-import PackageStatus from "./packageStatus";
-import RefreshIcon from "@material-ui/icons/Refresh";
+import React, { useState } from 'react';
+import CloseIcon from '@material-ui/icons/Close';
+import DeliveryTimeline from './deliveryTimeline';
+import { formatDate } from './utils';
+import LaunchIcon from '@material-ui/icons/Launch';
+import PackageStatus from './packageStatus';
+import RefreshIcon from '@material-ui/icons/Refresh';
 import {
   Button,
   Card,
@@ -19,31 +19,31 @@ import {
   Link,
   Typography,
   withStyles,
-} from "@material-ui/core";
-import TimeAgo from "react-timeago";
+} from '@material-ui/core';
+import TimeAgo from 'react-timeago';
 
-const LINEAR_PROGRESS_HEIGHT = "4px";
+const LINEAR_PROGRESS_HEIGHT = '4px';
 
 const styles = {
   cardHeader: {
-    paddingBottom: "8px",
+    paddingBottom: '8px',
   },
   cardMainContent: {
-    paddingTop: "8px",
-    paddingBottom: "8px",
+    paddingTop: '8px',
+    paddingBottom: '8px',
   },
   launchIcon: {
-    fontSize: "16px",
-    verticalAlign: "middle",
-    marginLeft: "2px",
+    fontSize: '16px',
+    verticalAlign: 'middle',
+    marginLeft: '2px',
   },
   showMore: {
-    marginLeft: "auto",
+    marginLeft: 'auto',
   },
   title: {
-    fontSize: "1.3rem",
-    minWidth: "220px",
-    width: "70%",
+    fontSize: '1.3rem',
+    minWidth: '220px',
+    width: '70%',
   },
 };
 
@@ -108,7 +108,7 @@ function PackageInfoCard({ classes, info, onDelete, onNameChange, onRefresh }) {
           onClick={handleExpandClick}
           size="small"
         >
-          {expanded ? "Show Less" : "Show More"}
+          {expanded ? 'Show Less' : 'Show More'}
         </Button>
       </CardActions>
       <Collapse in={expanded} timeout="auto">

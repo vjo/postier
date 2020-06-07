@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import createPersistedState from "use-persisted-state";
-import ErrorCard from "../components/errorCard";
-import Footer from "../components/footer";
-import Head from "next/head";
-import PackageInfoCard from "../components/packageInfoCard";
-import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
-import { Skeleton } from "@material-ui/lab";
-import { useRouter } from "next/router";
+import React, { useState } from 'react';
+import createPersistedState from 'use-persisted-state';
+import ErrorCard from '../components/errorCard';
+import Footer from '../components/footer';
+import Head from 'next/head';
+import PackageInfoCard from '../components/packageInfoCard';
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import { Skeleton } from '@material-ui/lab';
+import { useRouter } from 'next/router';
 import {
   Box,
   Button,
@@ -15,31 +15,31 @@ import {
   TextField,
   Typography,
   withStyles,
-} from "@material-ui/core";
+} from '@material-ui/core';
 
-export const CARD_HEIGHT = "194px";
+export const CARD_HEIGHT = '194px';
 const FETCH_ERROR_DATA = {};
 const styles = {
   footer: {
-    width: "100%",
-    height: "30px",
-    marginTop: "20px",
-    borderTop: "1px solid #eaeaea",
-    display: "flex",
+    width: '100%',
+    height: '30px',
+    marginTop: '20px',
+    borderTop: '1px solid #eaeaea',
+    display: 'flex',
   },
   footerIcon: {
-    verticalAlign: "bottom",
+    verticalAlign: 'bottom',
   },
   cardShowMore: {
-    marginLeft: "auto",
+    marginLeft: 'auto',
   },
 };
 
-const useTrackingInfoState = createPersistedState("trackingInfo");
+const useTrackingInfoState = createPersistedState('trackingInfo');
 
 function Home({ classes }) {
   const router = useRouter();
-  const [trackingId, setTrackingId] = useState("");
+  const [trackingId, setTrackingId] = useState('');
   const [trackingInfo, setTrackingInfo] = useTrackingInfoState({});
   const ids = Object.keys(trackingInfo);
 
@@ -77,8 +77,8 @@ function Home({ classes }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (trackingId.length) {
-      fetchId({ id: trackingId, action: "isLoading" });
-      setTrackingId("");
+      fetchId({ id: trackingId, action: 'isLoading' });
+      setTrackingId('');
     }
   };
 
@@ -93,14 +93,14 @@ function Home({ classes }) {
       [id]: { ...trackingInfo[id], name: event.target.value },
     });
 
-  const handleRefresh = (id) => () => fetchId({ id, action: "isRefreshing" });
+  const handleRefresh = (id) => () => fetchId({ id, action: 'isRefreshing' });
 
   const { track } = router.query;
   if (track) {
     if (!(track in trackingInfo)) {
-      fetchId({ id: track, action: "isLoading" });
+      fetchId({ id: track, action: 'isLoading' });
     }
-    router.push("/", undefined, { shallow: true });
+    router.push('/', undefined, { shallow: true });
   }
 
   return (
@@ -111,7 +111,7 @@ function Home({ classes }) {
             Postier
           </Typography>
         </header>
-        <main style={{ marginTop: "40px" }}>
+        <main style={{ marginTop: '40px' }}>
           <Grid
             container
             direction="row"

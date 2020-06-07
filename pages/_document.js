@@ -1,7 +1,7 @@
-import React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import { ServerStyleSheets } from "@material-ui/core/styles";
-import theme from "../components/theme";
+import React from 'react';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheets } from '@material-ui/core/styles';
+import theme from '../components/theme';
 
 export default class MyDocument extends Document {
   render() {
@@ -34,7 +34,7 @@ export default class MyDocument extends Document {
           />
         </Head>
         {/* paddingLeft used to fix the layout shifting when scrollbar appears */}
-        <body style={{ paddingLeft: "calc(100vw - 100%)" }}>
+        <body style={{ paddingLeft: 'calc(100vw - 100%)' }}>
           <Main />
           <NextScript />
         </body>

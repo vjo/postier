@@ -1,18 +1,18 @@
-import React from "react";
-import { Chip, Typography, withStyles } from "@material-ui/core";
-import { getStatusFromCode } from "./utils";
-import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
-import CheckCircleOutlinedIcon from "@material-ui/icons/CheckCircleOutlined";
-import theme from "./theme";
+import React from 'react';
+import { Chip, Typography, withStyles } from '@material-ui/core';
+import { getStatusFromCode } from './utils';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
+import theme from './theme';
 
 const styles = {
   icon: {
-    verticalAlign: "bottom",
-    marginRight: "4px",
+    verticalAlign: 'bottom',
+    marginRight: '4px',
   },
 };
 
-function PackageStatus({ classes, events, lang = "en" }) {
+function PackageStatus({ classes, events, lang = 'en' }) {
   const lastEvent = events[0];
   const status = getStatusFromCode(lastEvent.code);
 

@@ -1,10 +1,10 @@
-import React from "react";
-import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import HighlightOffIcon from "@material-ui/icons/HighlightOff";
-import LensIcon from "@material-ui/icons/Lens";
+import React from 'react';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import LensIcon from '@material-ui/icons/Lens';
 
-const DELIVERED_CODE = "DI1";
-const RETURNED_CODE = "DI2";
+const DELIVERED_CODE = 'DI1';
+const RETURNED_CODE = 'DI2';
 
 export default function StepIcon({ code }) {
   switch (code) {

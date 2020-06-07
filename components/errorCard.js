@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { CARD_HEIGHT } from "../pages";
-import CloseIcon from "@material-ui/icons/Close";
-import { Alert, AlertTitle } from "@material-ui/lab";
-import { IconButton, Typography } from "@material-ui/core";
+import React, { useState } from 'react';
+import { CARD_HEIGHT } from '../pages';
+import CloseIcon from '@material-ui/icons/Close';
+import { Alert, AlertTitle } from '@material-ui/lab';
+import { IconButton, Typography } from '@material-ui/core';
 
 export default function ErrorCard({ info, onDelete }) {
   const { idShip, returnCode, returnMessage } = info;
@@ -24,13 +24,13 @@ export default function ErrorCard({ info, onDelete }) {
     >
       <AlertTitle>Error</AlertTitle>
       {returnCode ? (
-        <Typography variant={"body2"}>Code Error: {returnCode}</Typography>
+        <Typography variant={'body2'}>Code Error: {returnCode}</Typography>
       ) : null}
       {idShip ? (
-        <Typography variant={"body2"}>Tracking Id: {idShip}</Typography>
+        <Typography variant={'body2'}>Tracking Id: {idShip}</Typography>
       ) : null}
       {returnMessage ? (
-        <Typography variant={"body2"}>Message: {returnMessage}</Typography>
+        <Typography variant={'body2'}>Message: {returnMessage}</Typography>
       ) : null}
     </Alert>
   );

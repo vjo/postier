@@ -1,22 +1,22 @@
-import React from "react";
-import StepIcon from "./stepIcon";
-import { CARD_HEIGHT } from "../pages";
-import { getCountryEmojiForEvent } from "./utils";
-import { formatDate } from "./utils";
-import { Grid, Typography, withStyles } from "@material-ui/core";
+import React from 'react';
+import StepIcon from './stepIcon';
+import { CARD_HEIGHT } from '../pages';
+import { getCountryEmojiForEvent } from './utils';
+import { formatDate } from './utils';
+import { Grid, Typography, withStyles } from '@material-ui/core';
 
 const styles = (theme) => ({
   container: {
-    marginBottom: "5px",
+    marginBottom: '5px',
   },
   label: {
-    paddingBottom: "8px",
+    paddingBottom: '8px',
   },
   line: {
-    height: "100%",
-    marginLeft: "9px",
-    borderLeftWidth: "1px",
-    borderLeftStyle: "solid",
+    height: '100%',
+    marginLeft: '9px',
+    borderLeftWidth: '1px',
+    borderLeftStyle: 'solid',
     borderLeftColor: theme.palette.primary.main,
   },
 });
