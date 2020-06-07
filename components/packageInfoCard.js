@@ -94,9 +94,7 @@ function PackageInfoCard({ classes, info, onDelete, onNameChange, onRefresh }) {
         title={title}
       />
       <CardContent className={classes.cardMainContent}>
-        <Typography variant="body1" color="textPrimary">
-          <PackageStatus events={info.shipment.event} />
-        </Typography>
+        <PackageStatus events={info.shipment.event} />
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="refresh information" onClick={onRefresh}>
