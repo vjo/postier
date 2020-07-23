@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import createPersistedState from 'use-persisted-state';
 import ErrorCard from '../components/errorCard';
 import Footer from '../components/footer';
+import * as gtag from '../lib/gtag';
 import Head from 'next/head';
 import PackageInfoCard from '../components/packageInfoCard';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
@@ -80,12 +81,20 @@ function Home({ classes }) {
     if (trackingId.length) {
       fetchId({ id: trackingId, action: 'isLoading' });
       setTrackingId('');
+      gtag.event({
+        action: 'add',
+        category: 'package',
+      });
     }
   };
 
   const handleDelete = (id) => () => {
     const { [id]: _, ...rest } = trackingInfo;
     setTrackingInfo({ ...rest });
+    gtag.event({
+      action: 'delete',
+      category: 'package',
+    });
   };
 
   const handleNameChange = (id) => (event) =>
@@ -94,7 +103,13 @@ function Home({ classes }) {
       [id]: { ...trackingInfo[id], name: event.target.value },
     });
 
-  const handleRefresh = (id) => () => fetchId({ id, action: 'isRefreshing' });
+  const handleRefresh = (id) => () => {
+    fetchId({ id, action: 'isRefreshing' });
+    gtag.event({
+      action: 'refresh',
+      category: 'package',
+    });
+  };
 
   const { track } = router.query;
   if (track) {
