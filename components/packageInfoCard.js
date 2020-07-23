@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 import DeliveryTimeline from './deliveryTimeline';
 import { formatDate } from './utils';
+import * as gtag from '../lib/gtag';
 import LaunchIcon from '@material-ui/icons/Launch';
 import PackageStatus from './packageStatus';
 import RefreshIcon from '@material-ui/icons/Refresh';
@@ -52,6 +53,10 @@ function PackageInfoCard({ classes, info, onDelete, onNameChange, onRefresh }) {
   const [expanded, setExpanded] = useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
+    gtag.event({
+      action: expanded ? 'show_less' : 'show_more',
+      category: 'package',
+    });
   };
 
   const title = (
