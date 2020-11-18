@@ -16,7 +16,7 @@
     "next": "9.4.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-timeago": "false4.4.0",
+    "react-timeago": "4.4.0",
     "use-persisted-state": "0.3.0"
   },
   "devDependencies": {
