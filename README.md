@@ -8,10 +8,10 @@ This project is built out of the frustration using La Poste's [tracking service]
 
 ## Usage
 
-Visit https://postier.now.sh and enter your tracking id handle by La Poste.
+Visit https://postier.vercel.app and enter your tracking id handle by La Poste.
 Parcels' information are stored in your browser so parcels are visible on subsequent visits.
 
-To add a parcel from the URL: `https://postier.now.sh/?track=<YOUR_ID>`
+To add a parcel from the URL: `https://postier.vercel.app/?track=<YOUR_ID>`
 
 ## Development
 
