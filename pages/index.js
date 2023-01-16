@@ -20,6 +20,7 @@ import {
 } from '@material-ui/core';
 
 export const CARD_HEIGHT = '194px';
+
 const FETCH_ERROR_DATA = {};
 const styles = {
   footer: {
