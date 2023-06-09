@@ -30,10 +30,10 @@ export default function MyApp(props) {
           content="La Poste parcels tracking, simple."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://postier.new.sh" />
+        <meta property="og:url" content="https://postier.vercel.app" />
         <meta
           property="og:image"
-          content="https://postier.now.sh/ogimage.jpg"
+          content="https://postier.vercel.app/ogimage.jpg"
         />
         <meta property="og:image:width" content="800" />
         <meta property="og:image:height" content="450" />
